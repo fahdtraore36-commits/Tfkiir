@@ -1,0 +1,661 @@
+/* ==========================================
+   CHARTE GRAPHIQUE - FONDARE TECHNOLOGIES
+   ========================================== */
+:root {
+    --bg-dark: #111111;          /* Noir principal (40%) */
+    --primary-violet: #6C5CE7;   /* Violet (30%) */
+    --text-light: #F8FAFC;       /* Blanc cassé (20%) */
+    --accent-turquoise: #00F5D4; /* Turquoise d'accent (10%) */
+    --font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-family);
+    overflow-x: hidden;
+}
+
+/* En-tête */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: rgba(17, 17, 17, 0.95);
+    border-bottom: 1px solid rgba(108, 92, 231, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.company-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.company-name .accent-è {
+    color: var(--primary-violet);
+}
+
+/* Style des liens de navigation */
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--accent-turquoise);
+}
+
+/* Bouton Menu Burger (les trois barres) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 2px;
+    width: 100%;
+    background-color: var(--text-light);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Section Accueil / Hero */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 40px;
+    background: radial-gradient(circle at center, rgba(108, 92, 231, 0.15) 0%, var(--bg-dark) 70%);
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-violet), var(--accent-turquoise));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Description animée */
+.animated-description {
+    font-size: 1.1rem;
+    color: #a0a0ab;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animated-description.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Bouton principal */
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-violet), var(--accent-turquoise));
+    color: var(--text-light);
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 245, 212, 0.4);
+}
+
+/* Responsive pour mobiles */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.98);
+        padding: 20px;
+        border-bottom: 1px solid rgba(108, 92, 231, 0.2);
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
+/* ===================================
+   SECTION SERVICES (DESIGN IMMERSIF)
+=================================== */
+.services-immersive-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.service-box {
+    position: relative;
+    height: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(108, 92, 231, 0.25);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.96) 25%, rgba(17, 17, 17, 0.25) 85%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
+    text-align: left;
+}
+
+.service-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--accent-turquoise);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.service-overlay h3 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.service-overlay p {
+    color: #a0a0ab;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.service-box:hover img {
+    transform: scale(1.08);
+}
+
+.service-box:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-turquoise);
+    box-shadow: 0 10px 30px rgba(0, 245, 212, 0.2);
+}
+/* ===================================
+   SECTION RÉALISATIONS (STYLE DOMINO / QUINCONCE)
+=================================== */
+.portfolio-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Style propre et moderne pour les boutons de filtres */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    color: var(--text-light);
+    padding: 10px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary-violet), var(--accent-turquoise));
+    border-color: transparent;
+    color: var(--bg-dark);
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 245, 212, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Grille Domino (2 colonnes sur grand écran) */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    text-align: left;
+}
+
+.portfolio-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(108, 92, 231, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Effet DOMINO / QUINCONCE : On décale une carte sur deux vers le bas */
+.portfolio-item:nth-child(even) {
+    transform: translateY(40px); /* Décale la 2e, 4e, 6e carte vers le bas */
+}
+
+.portfolio-item:nth-child(even):hover {
+    transform: translateY(32px); /* Conserve le décalage tout en montant légèrement au survol */
+}
+
+.portfolio-item:nth-child(odd):hover {
+    transform: translateY(-8px);
+}
+
+.portfolio-item:hover {
+    border-color: var(--accent-turquoise);
+    box-shadow: 0 15px 35px rgba(0, 245, 212, 0.15);
+}
+
+.portfolio-img-container {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: rgba(108, 92, 231, 0.1);
+}
+
+.portfolio-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover .portfolio-img-container img {
+    transform: scale(1.08);
+}
+
+/* Badge de catégorie stylisé */
+.category-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(8px);
+}
+
+.category-badge.web {
+    background: rgba(108, 92, 231, 0.85);
+    color: var(--text-light);
+}
+
+.category-badge.design {
+    background: rgba(0, 245, 212, 0.85);
+    color: var(--bg-dark);
+}
+
+.category-badge.video {
+    background: rgba(255, 107, 107, 0.85);
+    color: var(--text-light);
+}
+
+.portfolio-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portfolio-content h3 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.portfolio-content p {
+    color: #a0a0ab;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.portfolio-item.hidden {
+    display: none !important;
+}
+
+/* Responsive Mobile : on remet en 1 colonne simple et on annule le décalage domino sur petit écran */
+@media screen and (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .portfolio-item:nth-child(even) {
+        transform: translateY(0);
+    }
+    .portfolio-item:nth-child(even):hover {
+        transform: translateY(-5px);
+    }
+}
+/* ===================================
+   SECTION CONTACT & FOOTER
+=================================== */
+.contact-section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(108, 92, 231, 0.25);
+    border-radius: 24px;
+    padding: 50px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.contact-info h2 {
+    font-size: 2.2rem;
+    margin: 10px 0 20px;
+    line-height: 1.2;
+}
+
+.contact-info p {
+    color: #a0a0ab;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.method-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.method-icon {
+    font-size: 1.5rem;
+    background: rgba(108, 92, 231, 0.15);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.method-item h4 {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.method-item p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Formulaire */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 15px 18px;
+    background: rgba(17, 17, 17, 0.8);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    border-radius: 12px;
+    color: var(--text-light);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group select option {
+    background: #111111;
+    color: var(--text-light);
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: var(--accent-turquoise);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.15);
+}
+
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-violet), var(--accent-turquoise));
+    color: var(--bg-dark);
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 245, 212, 0.35);
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid rgba(108, 92, 231, 0.2);
+    padding: 40px 20px 20px;
+    background: rgba(10, 10, 10, 0.95);
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand p {
+    color: #a0a0ab;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #a0a0ab;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-turquoise);
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media screen and (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+    }
+}
+/* ===================================
+   CARTES RÉSEAUX SOCIAUX (WHATSAPP & TIKTOK)
+=================================== */
+.social-card {
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(108, 92, 231, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateX(6px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.social-card.whatsapp:hover {
+    border-color: #25D366;
+}
+
+.social-card.whatsapp .method-icon {
+    color: #25D366;
+    background: rgba(37, 211, 102, 0.12);
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
+.social-card.tiktok:hover {
+    border-color: var(--accent-turquoise);
+}
+
+.social-card.tiktok .method-icon {
+    color: var(--accent-turquoise);
+    background: rgba(0, 245, 212, 0.12);
+    border-color: rgba(0, 245, 212, 0.3);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.social-pill {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.social-pill:hover {
+    border-color: var(--accent-turquoise);
+    color: var(--accent-turquoise);
+    background: rgba(0, 245, 212, 0.08);
+}
